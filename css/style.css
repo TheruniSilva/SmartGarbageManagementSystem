@@ -1,0 +1,141 @@
+/* css/style.css */
+
+/* Import Tailwind CSS - this is typically done via a build process,
+   but for a simple HTML/CSS/JS project, we can link the CDN in HTML.
+   These classes are used directly in the HTML. */
+
+/* Base styles for the body and fonts */
+body {
+    font-family: 'Inter', sans-serif;
+    @apply bg-gray-100 text-gray-900;
+}
+
+/* Login Page Specific Styles */
+.login-container {
+    @apply bg-white p-8 rounded-lg shadow-lg w-full max-w-md;
+}
+
+/* Dashboard Layout */
+.dashboard-container {
+    @apply flex flex-col md:flex-row min-h-screen bg-gray-100;
+}
+
+.sidebar {
+    @apply w-full md:w-64 bg-gray-800 text-white p-6 flex flex-col;
+}
+
+.main-content {
+    @apply flex-1 p-6;
+}
+
+.header {
+    @apply flex items-center justify-between pb-4 border-b border-gray-200 mb-6;
+}
+
+.card {
+    @apply bg-white p-6 rounded-lg shadow-md;
+}
+
+/* Specific card styles for dashboard elements */
+.summary-card {
+    @apply grid grid-cols-1 md:grid-cols-3 gap-4;
+}
+
+.waste-status-card {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-6;
+}
+
+.material-composition-card .progress-bar-container {
+    @apply w-full bg-gray-200 rounded-full h-2.5 mb-2;
+}
+
+.material-composition-card .progress-bar {
+    @apply h-2.5 rounded-full;
+}
+
+.detection-log-card table {
+    @apply w-full text-left;
+}
+
+.detection-log-card th, .detection-log-card td {
+    @apply py-3 px-4 border-b border-gray-200;
+}
+
+.detection-log-card th {
+    @apply bg-gray-50 text-xs font-medium text-gray-500 uppercase tracking-wider;
+}
+
+.detection-log-card td {
+    @apply text-sm text-gray-700;
+}
+
+/* Fill level circle styles */
+.fill-level-circle {
+    position: relative;
+    width: 120px; /* Adjust size as needed */
+    height: 120px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #333;
+    background: conic-gradient(
+        #F97316 var(--fill-percentage),
+        #E5E7EB var(--fill-percentage)
+    );
+    transition: background 0.5s ease-in-out;
+}
+
+.fill-level-circle::before {
+    content: '';
+    position: absolute;
+    width: 100px; /* Inner circle size */
+    height: 100px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.fill-level-circle span {
+    position: relative;
+    z-index: 10;
+}
+
+/* Specific colors for plastic and metal */
+.plastic-fill-circle {
+    background: conic-gradient(
+        #F97316 var(--fill-percentage), /* Orange */
+        #E5E7EB var(--fill-percentage)
+    );
+}
+
+.metal-fill-circle {
+    background: conic-gradient(
+        #EF4444 var(--fill-percentage), /* Red */
+        #E5E7EB var(--fill-percentage)
+    );
+}
+
+/* Alert styles */
+.alert-box {
+    @apply fixed bottom-4 right-4 bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded-lg shadow-lg flex items-center;
+    z-index: 1000;
+}
+
+.alert-box .close-btn {
+    @apply ml-4 text-yellow-700 cursor-pointer;
+}
+
+/* Utility classes for responsive design (Tailwind handles most of this) */
+@media (max-width: 768px) {
+    .dashboard-container {
+        @apply flex-col;
+    }
+    .sidebar {
+        @apply w-full;
+    }
+    .summary-card, .waste-status-card {
+        @apply grid-cols-1;
+    }
+}
