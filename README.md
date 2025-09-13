@@ -1,2 +1,2 @@
 # SmartGarbageManagementSystem
-IoT driven smart dry waste bin and monitoring dashboard 
+IoT driven smart dry waste segregation bin and monitoring dashboard 
